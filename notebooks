@@ -1,0 +1,26 @@
+import pandas as pd
+
+# Load the dataset
+df = pd.read_csv("../data/raw_complaints.csv", low_memory=False)
+
+# Quick view
+df.shape
+df.columns
+df.head()
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Count how many complaints there are per product
+product_counts = df['Product'].value_counts()
+
+# Plot the top 10 products
+plt.figure(figsize=(10, 6))
+sns.barplot(x=product_counts.index[:10], y=product_counts.values[:10])
+plt.xticks(rotation=45)
+plt.title("Top 10 Products by Number of Complaints")
+plt.xlabel("Product")
+plt.ylabel("Number of Complaints")
+plt.tight_layout()
+plt.show()
+
