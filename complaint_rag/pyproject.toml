@@ -1,0 +1,27 @@
+[project]
+name = "complaint_rag"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.9,<=3.13.3"
+dependencies = [
+    "dagster",
+    "dagster-cloud",
+]
+
+[project.optional-dependencies]
+dev = [
+    "dagster-webserver", 
+    "pytest",
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.dagster]
+module_name = "complaint_rag.definitions"
+code_location_name = "complaint_rag"
+
+[tool.setuptools.packages.find]
+exclude=["complaint_rag_tests"]
